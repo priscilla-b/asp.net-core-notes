@@ -23,7 +23,7 @@
 - **Model**: Represents the shape of the data, represented as classes. Corresponds to all the data related logic used in the application.
 - **View**: Represents the user interface.
 - **Controller**: Handles user requests and interfaces between the model and the view. Process all business logic.
-![](imgs\MVC.png)
+![](imgs/MVC.png)
 
 ## MVC Web App Features
 ### Routes
