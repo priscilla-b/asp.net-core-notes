@@ -35,3 +35,23 @@
 #### Tag Helpers
 - enables server-side code to participate in creating and rendering HTML elements in [Razor](https://learn.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-7.0) files.
 - pretty much like django template tags
+
+#### Action Result
+- the result or return type of an action method/page, e.g. a view, partial view, redirect, json, file, etc.
+- a parent class of many of the derived classes that have associated helpers
+- `IActionResult` is a generic type that implements all other return types
+- but a more specific class like `ViewResult` can be used when a view is specifically being returned
+	```c#
+	// using the generic IActionResult
+	public IActionResult Index()
+	{
+		return View()
+	}
+
+	//using ViewResult
+	public ViewResult Index()
+	{
+		return View()
+	}
+	```
+- `IActionResult` is appropriate when different return types are possible in one action
