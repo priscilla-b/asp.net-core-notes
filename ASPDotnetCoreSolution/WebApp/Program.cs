@@ -1,7 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using WebApp.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<ApplicationDbContext>(options=> options.UseSqlServer(
+    builder.Configuration.GetConnectionString("DefaultConnection")
+    ));
+// finds the DefaultConnection defined in the ConnectionString block of the appsettings.json file
 builder.Services.AddRazorPages();
 
 var app = builder.Build();
