@@ -55,3 +55,28 @@
 	}
 	```
 - `IActionResult` is appropriate when different return types are possible in one action
+
+
+### Models and Databases
+#### Entity Framework
+- asp.net uses [entity framework](https://learn.microsoft.com/en-us/ef/) to build database models in applications
+- supports LINQ queries, change tracking, updates and schema migrations.
+
+#### Data Annotations
+- in asp.net, data annotations(attributes) are used to add context to the kind of fields defined in a model class
+- in the code snippet below, the data annotations `Key` and `Required` have been added to give context to the 
+Id and Name fields
+	```C#
+	 public class Category
+	 {
+        [Key]
+        // Key data annotation(attribute) sets the Id column as the primary key and identity column
+        public int Id { get; set; }
+        [Required]
+		// sets Name as a required field 
+        public int Name { get; set; }
+        public int DisplayOrder { get; set; }
+        public DateTime CreatedDateTime { get; set; } = DateTime.Now;
+        // sets DateTime.Now as default value
+	  }
+	```
