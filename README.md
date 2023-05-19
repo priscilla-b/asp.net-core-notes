@@ -80,3 +80,21 @@ Id and Name fields
         // sets DateTime.Now as default value
 	  }
 	```
+
+#### DbContext and Unit of Work
+- a [dbcontext](https://learn.microsoft.com/en-us/ef/core/dbcontext-configuration/) instance creates a session with a database to track changes, query and save instance of database entities.
+- lifetime of a `DbContext` begins when the instance is created and ends when the instance is disposed
+- a	`DbContext` instance is designed to be used for a [single unit of work](https://www.martinfowler.com/eaaCatalog/unitOfWork.html)
+- > A Unit of Work keeps track of everything you do during a business transaction that can affect the database. When you're done, it figures out everything that needs to be done to alter the database as a result of your work 
+- A unit of work using EF Core includes
+	- creation of a `DbContext` instance
+	- tracking of entity instances by the context *(need to read more on this)*
+	- making of changes to tracked entities as needed to implement business rule
+	- calling of `SaveChanges` or `SaveChangesAsync` to detect changes made and writing them to the database
+	- disposing of instance
+- The idea behind using dbcontext to track changes to entities is to avoid writing directly to the database anytime changes are made
+- In many web apps, each http request represents a single unit of work, hence makes sense to tie the dbcontext lifetime to that of the request
+- In Asp.net, `ApplicationDbContext`, which is a subclass of `DbContext` is created for each request and passed to the controller to 
+perform a unit of work before being disposed when the request ends.
+
+
