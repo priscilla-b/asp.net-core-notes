@@ -97,4 +97,23 @@ Id and Name fields
 - In Asp.net, `ApplicationDbContext`, which is a subclass of `DbContext` is created for each request and passed to the controller to 
 perform a unit of work before being disposed when the request ends.
 
+#### Migrations
+- Migrations help track code changes to data models and implement them to the database
+- Process to making migrations
+	- in the NuGet package manager console, install the `Microsoft.EntityFrameworkCore.Tools` package to enable migration commands
+
+
+
+
+#### Connecting to Databases: Process Overview
+1. add a database connection string to the `ConnectionStrings` block of the `appsettings.json` file.
+	database connection string should contain name of server, database and a trusted_connection boolean
+2. congifure the application dbcontext to open a session to the database, track changes and make modifications to the database.
+	this is done by creating an `ApplicationDbContext` class which subclasses `DbContext`  with various options.
+	the application db context class will hold the names of all the database entities defined using the `DbSet` class
+3. add the created application context to the application services using `builder.Services.AddDbContext()` method in the Program.cs file.
+	pass the database management system being used as an option to the `AddDbContext()` method along with the connection string created in 
+	the `appsettings.json` file.
+4. make migrations to the database to create the entities defined in the application
+
 
