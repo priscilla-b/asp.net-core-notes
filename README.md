@@ -101,9 +101,12 @@ perform a unit of work before being disposed when the request ends.
 - Migrations help track code changes to data models and implement them to the database
 - Process to making migrations
 	- in the NuGet package manager console, install the `Microsoft.EntityFrameworkCore.Tools` package to enable migration commands
-
-
-
+	- you can then run `add-migration <migration name>` in the package manager console
+	- this creates a migration folder with a migration class file that contains `Up` and `Down` methods for upgrading and downgrading 
+	database based on changes to the model class
+	- use the update-database command to push the migration to the database
+	- entity framework core uses the logic in the migration class to generate and insert sql queries into the database to make the necessary
+	database changes
 
 #### Connecting to Databases: Process Overview
 1. add a database connection string to the `ConnectionStrings` block of the `appsettings.json` file.
