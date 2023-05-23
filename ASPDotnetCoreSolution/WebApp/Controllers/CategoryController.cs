@@ -20,5 +20,26 @@ namespace WebApp.Controllers
             IEnumerable<Category> objCategoryList = _db.Categories;
             return View(objCategoryList);
         }
+
+        //GET
+        public IActionResult Create()
+        {
+            
+            return View();
+        }
+
+        //POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        // to prevent csrf attacks
+        public IActionResult Create(Category obj)
+        {
+            _db.Categories.Add(obj);
+            // the category object (obj) is the instace of the 
+            // category model filled by the user
+
+            _db.SaveChanges();
+            return RedirectToAction("Index");  
+        }
     }
 }
