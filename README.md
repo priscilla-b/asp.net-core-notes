@@ -179,3 +179,21 @@ This object contains an enumerable list of all items in the category model.
 			}
 		}
 	```
+
+
+
+## Conventions
+- When naming partial a partial view, it's best practice to start it's name with an underscore. e.g. `_Layout.cshtml`
+
+
+## Resources
+### Video Tutorials
+- [Learn ASP.NET Core MVC(.NET6) - Freecodecamp on Youtube](https://www.youtube.com/watch?v=hZ1DASYd9rk)
+
+### Microsoft Learn Documentations
+
+
+### External Blogs
+
+
+### Stackoverflow answers
