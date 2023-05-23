@@ -97,6 +97,28 @@ Id and Name fields
 - In Asp.net, `ApplicationDbContext`, which is a subclass of `DbContext` is created for each request and passed to the controller to 
 perform a unit of work before being disposed when the request ends.
 
+- In the code snippet below, the `ApplicationDbContext` class inherits from the base `DbContext` class
+Within the constructor of the same name, the options defined in the custom class are passed down to the base `dbcontext` class.
+- To create an interface of the database entity `Category` a `DbSet` of the entity named `Categories` is created with getters and setters.
+- The `Categories` dbset can now be called in controllers with the application dbcontext to interact with the database.
+```c#
+	public class ApplicationDbContext : DbContext
+	
+	{
+		public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base (options)
+		// DbContextOptions<ApplicationDbContext> is named options and passes down the options defined in the
+		// ApplicationDbcontext to the base DbContext class
+		{
+
+		}
+		public DbSet<Category> Categories { get; set; }
+		// this creates a Category table with the name Categories based on the
+		// model definition in the Category class
+
+	}
+
+```
+
 #### Migrations
 - Migrations help track code changes to data models and implement them to the database
 - Process to making migrations
