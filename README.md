@@ -36,27 +36,6 @@
 - enables server-side code to participate in creating and rendering HTML elements in [Razor](https://learn.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-7.0) files.
 - pretty much like django template tags
 
-#### Action Result
-- the result or return type of an action method/page, e.g. a view, partial view, redirect, json, file, etc.
-- a parent class of many of the derived classes that have associated helpers
-- `IActionResult` is a generic type that implements all other return types
-- but a more specific class like `ViewResult` can be used when a view is specifically being returned
-	```c#
-	// using the generic IActionResult
-	public IActionResult Index()
-	{
-		return View()
-	}
-
-	//using ViewResult
-	public ViewResult Index()
-	{
-		return View()
-	}
-	```
-- `IActionResult` is appropriate when different return types are possible in one action
-
-
 ### Models and Databases
 #### Entity Framework
 - asp.net uses [entity framework](https://learn.microsoft.com/en-us/ef/) to build database models in applications
@@ -148,10 +127,30 @@ Controllers handle the application logic and interfaces between the database and
 In an MVC architecture, separate controller classes are usually created to handle related business logic units.
 When a Controller class is created, it inherits from the base `Mvc.Controller` class which makes it easy to write controller
 logic without writing boilerplate code.
-To interface with the database within a controller, we create a reference to the [application dbcontext](#DbContext-and-Unit-of-Work)
 
+- To interact with the database within a controller, we create a reference to the [application dbcontext](#DbContext-and-Unit-of-Work) in the controller class.
+- A [unit of work](#DbContext-and-Unit-of-Work) within a controller are represented by "action" methods.
+- Action methods perform a unit of work and then can return a result such as a view, partial view, redirect, json, file, etc.
+- Action methods can use various inbuilt interfaces such as  `IActionResult`, `ViewResult`, etc. to return various "results" after an action has been completed.
+- `IActionResult` is a generic type that implements all other return types and is appropriate when different return types are possible in one action
+- but a more specific class like `ViewResult` can be used when a view is specifically being returned 
 
+	```c#
+	public class GenericController : Controller
+    {
+		// using the generic IActionResult
+		public IActionResult Index()
+		{
+			return View()
+		}
 
+		//using ViewResult
+		public ViewResult Index()
+		{
+			return View()
+		}
+	}
+	```
 
 ### CRUD Operations in Views and Controllers: Process Overview
 #### Read
