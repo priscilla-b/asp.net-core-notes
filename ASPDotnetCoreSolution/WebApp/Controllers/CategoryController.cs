@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Runtime.Remoting;
 using WebApp.Data;
 using WebApp.Models;
 
@@ -34,12 +35,23 @@ namespace WebApp.Controllers
         // to prevent csrf attacks
         public IActionResult Create(Category obj)
         {
-            _db.Categories.Add(obj);
-            // the category object (obj) is the instace of the 
-            // category model filled by the user
+            if (obj.Name == obj.DisplayOrder.ToString())
+            {
+                ModelState.AddModelError("Name", "The display order cannot exactly match the name");
+            }
+            if (ModelState.IsValid)
+            {
+                _db.Categories.Add(obj);
+                // the category object (obj) is the instace of the 
+                // category model filled by the user
 
-            _db.SaveChanges();
-            return RedirectToAction("Index");  
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+
+            }
+            
+            return View(obj);
+            
         }
     }
 }
