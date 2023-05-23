@@ -64,7 +64,7 @@
 
 #### Data Annotations
 - in asp.net, data annotations(attributes) are used to add context to the kind of fields defined in a model class
-- in the code snippet below, the data annotations `Key` and `Required` have been added to give context to the 
+- The code snippet below shows a model class with the data annotations `Key` and `Required` added to give context to the 
 Id and Name fields
 	```C#
 	 public class Category
@@ -120,3 +120,18 @@ perform a unit of work before being disposed when the request ends.
 4. make migrations to the database to create the entities defined in the application
 
 
+### Controllers and Views
+#### Controllers
+Controllers handle the application logic and interfaces between the database and the view(user interface).
+In an MVC architecture, separate controller classes are usually created to handle related business logic units.
+When a Controller class is created, it inherits from the base `Mvc.Controller` class which makes it easy to write controller
+logic without writing boilerplate code.
+To interface with the database within a controller, we create a reference to the [application dbcontext](#DbContext-and-Unit-of-Work)
+
+
+
+
+### CRUD Operations in Views and Controllers: Process Overview
+#### Read
+Reading data from a database and rendering it in a view requires using the application dbcontext and controller action to 
+interface between the view and the database.
