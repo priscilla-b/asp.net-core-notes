@@ -131,15 +131,15 @@ Within the constructor of the same name, the options defined in the custom class
 	database changes
 
 #### Connecting to Databases: Process Overview
-1. add a database connection string to the `ConnectionStrings` block of the `appsettings.json` file.
+- add a database connection string to the `ConnectionStrings` block of the `appsettings.json` file.
 	database connection string should contain name of server, database and a trusted_connection boolean
-2. congifure the application dbcontext to open a session to the database, track changes and make modifications to the database.
+- congifure the application dbcontext to open a session to the database, track changes and make modifications to the database.
 	this is done by creating an `ApplicationDbContext` class which subclasses `DbContext`  with various options.
 	the application db context class will hold the names of all the database entities defined using the `DbSet` class
-3. add the created application context to the application services using `builder.Services.AddDbContext()` method in the Program.cs file.
+- add the created application context to the application services using `builder.Services.AddDbContext()` method in the Program.cs file.
 	pass the database management system being used as an option to the `AddDbContext()` method along with the connection string created in 
 	the `appsettings.json` file.
-4. make migrations to the database to create the entities defined in the application
+- make migrations to the database to create the entities defined in the application
 
 
 ### Controllers and Views
