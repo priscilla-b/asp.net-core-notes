@@ -152,7 +152,30 @@ logic without writing boilerplate code.
 	}
 	```
 
+
 ### CRUD Operations in Views and Controllers: Process Overview
 #### Read
-Reading data from a database and rendering it in a view requires using the application dbcontext and controller action to 
+- Reading data from a database and rendering it in a view requires using the application dbcontext and controller action to 
 interface between the view and the database.
+- In the controller class, access the dbset defined in the application dbcontext to get access to 
+the database entity objects. 
+- In the code snippet below, within the `Index()` action method, we have defined an `IEnumberable` object `objCategoryList`.
+This object contains an enumerable list of all items in the category model. 
+- This is read from the `Categories` dbset in the application dbcontext as `_db.Categories`.
+	```c#
+	public class CategoryController : Controller
+		{
+			private readonly ApplicationDbContext _db;
+
+			public CategoryController(ApplicationDbContext db)
+			{
+				_db = db;
+			}
+
+			public IActionResult Index()
+			{
+				IEnumerable<Category> objCategoryList = _db.Categories;
+				return View(objCategoryList);
+			}
+		}
+	```
