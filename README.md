@@ -184,14 +184,21 @@ This object contains an enumerable list of all items in the category model.
 
 ## Conventions
 - When naming partial a partial view, it's best practice to start it's name with an underscore. e.g. `_Layout.cshtml`
-
+- Use PascalCase when when naming a class, record, or struct.
+- When naming an interface, use PascalCase in addition to prefixing the name with an 'I'
+- When naming public members of types, such as fields, properties, events, methods, 
+and local functions, use pascal casing
+- Use camel casing ("camelCasing") when naming private or internal fields, and prefix them with _.
+- When working with static fields that are private or internal, use the s_ prefix and for thread static use t_.
+- When writing method parameters, use camel casing.
+- [more conventions](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions)
 
 ## Resources
 ### Video Tutorials
 - [Learn ASP.NET Core MVC(.NET6) - Freecodecamp on Youtube](https://www.youtube.com/watch?v=hZ1DASYd9rk)
 
 ### Microsoft Learn Documentations
-
+- [C# coding conventions](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions)
 
 ### External Blogs
 
