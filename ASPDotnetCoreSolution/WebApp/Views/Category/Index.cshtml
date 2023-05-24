@@ -31,6 +31,7 @@
             <th>
                 Display Order
             </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -42,6 +43,14 @@
                 </td>
                 <td width="30%">
                     @obj.DisplayOrder
+                </td>
+                <td>
+                    <div class="w-75 btn-group" role="group">
+                        <a asp-controller="Category" asp-action="Edit" asp-route-id="@obj.Id"
+                        class="btn btn-primary mx-2">Edit</a>
+                        <a asp-controller="Category" asp-action="Delete" asp-route-id="@obj.Id"
+                        class="btn btn-secondary mx-2">Delete</a>
+                    </div>
                 </td>
             </tr>
         }
