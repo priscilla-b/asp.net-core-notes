@@ -27,14 +27,6 @@
 - **Controller**: Handles user requests and interfaces between the model and the view. Process all business logic.
 ![](imgs/MVC.png)
 
-### MVC Web App Features
-#### Routes
--  Routes in MVC follows this pattern: `https://localhost:5555(domain)/category(controller)/index(action)/3(id)`
-- the id part is optional but controller and action are not. In case those are not provided in a url pattern, the default controllers and actions defined in the program will be used.
-
-#### Tag Helpers
-- enables server-side code to participate in creating and rendering HTML elements in [Razor](https://learn.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-7.0) files.
-- pretty much like django template tags
 
 ### Models and Databases
 #### Entity Framework
@@ -155,8 +147,11 @@ logic without writing boilerplate code.
 #### Views
 - razor pages
 - layouts and partials
-- html helpers
 - default bootstrap
+
+##### Tag Helpers
+- enables server-side code to participate in creating and rendering HTML elements in [Razor](https://learn.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-7.0) files.
+- pretty much like django template tags
 
 #### Connecting Controllers with Views
 - To automatically associate a controller action with a view(html page) create the view page with the name of the 
@@ -215,6 +210,16 @@ controller passed to the view from the `Index` action method.
 @model IEnumerable<Category>
 ```
 The code snippet below in the view page tells the view to expect an IEnumerable Category model object to be passed to it
+
+
+### Other Features
+#### Routes
+-  Routes in MVC follows this pattern: `https://localhost:5555(domain)/category(controller)/index(action)/3(id)`
+- the id part is optional but controller and action are not. In case those are not provided in a url pattern, the default controllers and actions defined in the program will be used.
+
+#### TempData
+- `TempData` in .net core allows the storing of data that persists for only one request.
+- Makes it appropriate to store data such as alerts and messages
 
 ## Conventions
 - When naming partial a partial view, it's best practice to start it's name with an underscore. e.g. `_Layout.cshtml`
