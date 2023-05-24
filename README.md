@@ -152,16 +152,43 @@ logic without writing boilerplate code.
 	}
 	```
 
+#### Views
+- razor pages
+- layouts and partials
+- html helpers
+- default bootstrap
 
-### CRUD Operations in Views and Controllers: Process Overview
-#### Read
+#### Connecting Controllers with Views
+- To automatically associate a controller action with a view(html page) create the view page with the name of the 
+associated action within a subfolder with the controller name in the view folder.
+For example, an action with the name `Index` under the `Category` controller will expect its view file to be found at
+`/Views/Category/Index.cshtml` unless otherwise stated
+- To allow a user to navigate to a view page, add a link to the view page from another page, by specifying the name of the controller
+and action associated with the view within the `<a>` tag.
+
+	```cshtml
+	<li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Category" asp-action="Index">Category</a>
+     </li>
+	```
+- In the code snippet below the tag helpers `asp-controller` and `asp-action` are used to indicate the controller and action that 
+should be contacted once user clicks on the link named 'Category'
+
+
+#### CRUD Operations in Views and Controllers: Process Overview
+##### Read
 - Reading data from a database and rendering it in a view requires using the application dbcontext and controller action to 
 interface between the view and the database.
 - In the controller class, access the dbset defined in the application dbcontext to get access to 
 the database entity objects. 
+- Typical read operations include:
+	- getting a list of items from a database entity
+	- searching for a specific item within a database
 - In the code snippet below, within the `Index()` action method, we have defined an `IEnumberable` object `objCategoryList`.
 This object contains an enumerable list of all items in the category model. 
 - This is read from the `Categories` dbset in the application dbcontext as `_db.Categories`.
+- The result of the data read (`objCategoryList`) is then passed to the and returned with the `View()` function. 
+	
 	```c#
 	public class CategoryController : Controller
 		{
@@ -181,6 +208,13 @@ This object contains an enumerable list of all items in the category model.
 	```
 
 
+- At the top of the html page, using the `@model` directive with the model name allows the view to accept the model object that the 
+controller passed to the view from the `Index` action method.
+```cshtml
+// in .cshtml file
+@model IEnumerable<Category>
+```
+The code snippet below in the view page tells the view to expect an IEnumerable Category model object to be passed to it
 
 ## Conventions
 - When naming partial a partial view, it's best practice to start it's name with an underscore. e.g. `_Layout.cshtml`
