@@ -74,6 +74,30 @@ Considerations for using spa:
 When architecting and designing software applications, maintainability should be a core consideration.
 
 #### **Sepration of concerns**
+- asserts that software should be separated based on the kind of work it performs.
+- apps can be built to follow this principle by separating core business behavior from infrastructure and user-interface logic.
+- ideally, business rules and logic should reside in a separate project, which should not depend on other projects in the application. i.e. having ui, business logic and database divisions within an application
+- ensures that business model is easy to test and can evolve without being [tightly-coupled](https://glossary.cncf.io/tightly-coupled-architectures/) to low-level implementation details
+- achieved by the establishment of boundaries such as methods, objects, components and services to define core behavior within an application.
+- [more here](https://www.castsoftware.com/pulse/how-to-implement-design-pattern-separation-of-concerns#)
+
+#### **Encapsulation**
+- principle of insulating different parts of an application from each other.
+- app layers and components should be able to change their internal implementation without breaking their dependencies
+- for example, in classes, encapsulation is achieved by limiting outside access to the class's internal state, and allowing manipulations to its state to be made through a well-defined method or property setter.
+
+#### **Dependency inversion**
+
+
+#### **Explicity depencies**
+
+#### **Simple responsibility**
+
+#### **Don't repeat yourself (DRY)**
+
+#### **Persistence ignorance**
+
+#### **Bounded contexts**
 
 
 
