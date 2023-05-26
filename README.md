@@ -71,6 +71,7 @@ Considerations for using spa:
 ### Architectural Principles: Common design principles
 > "If builders built buildings the way programmers wrote programs, then the first woodpecker that came along would destroy civilization".
 > \- *Gerald Weinberg*
+
 When architecting and designing software applications, maintainability should be a core consideration.
 
 #### **Sepration of concerns**
@@ -87,6 +88,8 @@ When architecting and designing software applications, maintainability should be
 - for example, in classes, encapsulation is achieved by limiting outside access to the class's internal state, and allowing manipulations to its state to be made through a well-defined method or property setter.
 
 #### **Dependency inversion**
+- the direction of dependency within and application should be in the direction of the abstraction, not in the implementation details
+
 
 
 #### **Explicity depencies**
