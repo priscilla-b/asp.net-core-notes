@@ -238,6 +238,13 @@ controller passed to the view from the `Index` action method.
 The code snippet below in the view page tells the view to expect an IEnumerable Category model object to be passed to it
 
 
+##### Create
+When writing to a database in a create action, we still acess the database entity from the application db context
+just as we'd do in the read action.
+However, the major change comes from how we interact with the database. In a create action, we append a new
+row to the database
+
+
 ### Other Features
 #### Routes
 -  Routes in MVC follows this pattern: `https://localhost:5555(domain)/category(controller)/index(action)/3(id)`
