@@ -1,14 +1,16 @@
 # ASP.Net Core Notes
 
 ## General
-- .Net Core was initially released in June 2016 as an improved framework on the previous .NET MVC framework (2009) that preceded the Webforms framework(2002).
-- Pros:
-	- fast and open source compared to previous frameworks
-	- cross platform and no longer dependent on windows
-	- built in dependency injection. [what is that ??](https://www.freecodecamp.org/news/a-quick-intro-to-dependency-injection-what-it-is-and-when-to-use-it-7578c84fa88f/)
-	- new versions easy update and are easy to keep up with
-	- cloud friendly (was written with cloud architecture in mind) and compatible with all cloud platforms
-	- improved performace compared to previous frameworks
+.Net Core was initially released in June 2016 as an improved framework on the previous .NET MVC framework (2009) that preceded the Webforms framework(2002).
+
+### Pros and Features:
+- fast and open source compared to previous frameworks
+- cross platform and no longer dependent on windows
+- built in dependency injection[(what is that ??)](https://www.freecodecamp.org/news/a-quick-intro-to-dependency-injection-what-it-is-and-when-to-use-it-7578c84fa88f/) that allows apps to loosely couple
+with interfaces rather than specific implementations, making them easier to extend, maintain and test
+- new versions easy update and are easy to keep up with
+- cloud friendly (low memory and high-throughput - reliable, robust) and compatible with all cloud platforms
+- improved performace compared to previous frameworks
 
 
 ## ASP.Net Core MVC Web App Notes
