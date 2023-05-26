@@ -1,5 +1,33 @@
 # ASP.Net Core Notes
 
+## Content
+- [General introduction and features](#general)
+    - [Pros and features](#pros-and-features)
+- [Architecture](#architecture)
+    - [Choosing between traditonal web apps and SPAs](#choosing-between-traditional-web-apps-and-and-single-page-apps-spas)
+    - [Architectural principles: common design principles](#architectural-principles-common-design-principles)
+- [MVC Web Applications](#building-mvc-web-apps)
+    - [.net core pipeline](#net-core-pipeline)
+    - [mvc architecture](#mvc-archictecture)
+    - [models and databases](#models-and-databases)
+        - [entity framework](#entity-framework)
+        - [data annotations](#data-annotations)
+        - [dbcontext and unit of work](#dbcontext-and-unit-of-work)
+        - [migrations](#migrations)
+    - [controllers and views](#controllers-and-views)
+        - [controllers](#controllers)
+        - [views](#views)
+        - [connecting controllers with views](#connecting-controllers-with-views)
+        - [crud operations in views and controllers](#crud-operations-in-views-and-controllers-process-overview)
+    - [other features](#other-features)
+- [Naming conventions](#conventions)
+- [Resources](#resources)
+    - [microsoft documentations](#microsoft-learn-documentations)
+    - [external sites and blogs](#external-blogs-and-sites)
+    - [stackoverflow question and answers](#stackoverflow-answers)
+
+</br>
+
 ## General
 .Net Core was initially released in June 2016 as an improved framework on the previous .NET MVC framework (2009) that preceded the Webforms framework(2002).
 
@@ -17,6 +45,8 @@ Also ships with a TestServer that can be used to host apps in memory
     - *Traditional web apps* depends on the server for all navigations, queries and updates the app might need with little client-side behavior. Each new user interaction sends a new web request, and requires page to reload to get results. typically followed in classic mvc frameworks
     - *single page applications(SPAs)* involve very few dynamically generated server-side page loads. many SPAs are initialized with a static html file that loads the needed javascript functionalities for the interactivity, and make heavy use of web apis for their data needs. implemented in asp.net core with Blazor WebAssembly. 
     - many apps implement both behaviors and asp.net core supports both the provision of mvc and api functionalities in the same application
+
+</br>
 
 ## Architecture
 ### Choosing Between Traditional Web Apps and  and Single Page Apps (SPAs)
@@ -36,8 +66,20 @@ Considerations for using spa:
 - susceptible to frequent updates and new client frameworks than traditonal web apps
 - more challenging to configure automated build and deployment processes and utilize deployment options like containers
 
+</br>
 
-## ASP.Net Core MVC Web App Notes
+### Architectural Principles: Common design principles
+> "If builders built buildings the way programmers wrote programs, then the first woodpecker that came along would destroy civilization".
+> \- *Gerald Weinberg*
+When architecting and designing software applications, maintainability should be a core consideration.
+
+#### **Sepration of concerns**
+
+
+
+</br></br>
+
+## Building MVC Web Apps
 ### .NET Core Pipeline
 - .Net Core Pipeline: specifies how an application should respond to requests received.
 - Requests received from the browser goes through the pipeline, which is made of different middlewares.
