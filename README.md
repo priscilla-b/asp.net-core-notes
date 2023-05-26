@@ -11,6 +11,30 @@ with interfaces rather than specific implementations, making them easier to exte
 - new versions easy update and are easy to keep up with
 - cloud friendly (low memory and high-throughput - reliable, robust) and compatible with all cloud platforms
 - improved performace compared to previous frameworks
+- easily tested with automated tests: the [loose coupling](https://en.wikipedia.org/wiki/Loose_coupling) and support for dependency injection makes it easy to swap infrastructure concerns with fake implementations for test purposes.
+Also ships with a TestServer that can be used to host apps in memory
+- supports both traditional and single page application (spa) behaviors.
+    - *Traditional web apps* depends on the server for all navigations, queries and updates the app might need with little client-side behavior. Each new user interaction sends a new web request, and requires page to reload to get results. typically followed in classic mvc frameworks
+    - *single page applications(SPAs)* involve very few dynamically generated server-side page loads. many SPAs are initialized with a static html file that loads the needed javascript functionalities for the interactivity, and make heavy use of web apis for their data needs. implemented in asp.net core with Blazor WebAssembly. 
+    - many apps implement both behaviors and asp.net core supports both the provision of mvc and api functionalities in the same application
+
+## Architecture
+### Choosing Between Traditional Web Apps and  and Single Page Apps (SPAs)
+Traditional web apps perform most of the app logic on the server side while SPAs do so on the client side.
+
+Use traditional web apps when:
+- app's client side requirements are simple or read-only
+- app need to function in browsers without javascript support
+
+Use SPA when:
+- app must expose a rich user interface with many features
+- team is familiar with javascript, typescript or blazor webassemply development
+- application must expose an api for other clients
+
+Considerations for using spa:
+- SPA frameworks require greater architectural and security expertise. 
+- susceptible to frequent updates and new client frameworks than traditonal web apps
+- more challenging to configure automated build and deployment processes and utilize deployment options like containers
 
 
 ## ASP.Net Core MVC Web App Notes
