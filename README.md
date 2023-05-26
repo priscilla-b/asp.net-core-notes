@@ -237,9 +237,17 @@ and local functions, use pascal casing
 - [Learn ASP.NET Core MVC(.NET6) - Freecodecamp on Youtube](https://www.youtube.com/watch?v=hZ1DASYd9rk)
 
 ### Microsoft Learn Documentations
+- [entity framework documentation hub](https://learn.microsoft.com/en-us/ef/)
+- [dbcontext lifetime, configuration and initialization](https://learn.microsoft.com/en-us/ef/core/dbcontext-configuration/)
+- [razor syntax reference for asp.net core](https://learn.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-7.0)
 - [C# coding conventions](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/coding-style/coding-conventions)
+- [Architecting modern web applications with asp.net core and azure (ebook)](https://dotnet.microsoft.com/en-us/download/e-book/aspnet/pdf)
 
-### External Blogs
+### External Blogs and Sites
+- [a quick introduction to dependency injection ... (freecodecamp)](https://www.freecodecamp.org/news/a-quick-intro-to-dependency-injection-what-it-is-and-when-to-use-it-7578c84fa88f/)
+- [loose coupling (wikipedia)](https://en.wikipedia.org/wiki/Loose_coupling)
 
 
 ### Stackoverflow answers
+- [fix to "certificate not trusted ... " when connecting to sqlserver database](https://stackoverflow.com/questions/17615260/the-certificate-chain-was-issued-by-an-authority-that-is-not-trusted-when-conn)
+- [what's the common practice of gitignore for asp.net core project](https://stackoverflow.com/questions/39289765/whats-the-common-practice-of-gitignore-for-aspnet-core-project)
