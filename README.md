@@ -101,18 +101,40 @@ When architecting and designing software applications, maintainability should be
 - read more [here](https://en.wikipedia.org/wiki/Dependency_inversion_principle)
 
 
+#### **Explicit dependencies**
+- methods and classes should explicitly require any collaboration objects they need in order to function correctly
+- when defining class constructors, any collaborating object that the class will need to function, should be explicitly called or stated in the constructor. the class should not have to depend on certain global or infrastructure components to function.
+- classes with explicit dependencies are more honest, and tend to follow the [Principle of Least Surprise](https://en.wikipedia.org/wiki/Principle_of_least_astonishment) by not affecting parts of the application they didn't explicitly demonstrate they needed to affect
+- read more [here](https://deviq.com/principles/explicit-dependencies-principle)
 
-#### **Explicity depencies**
 
 #### **Simple responsibility**
+- objects should have only one responsibility and should have only one reason to change
+- the only reason and object should change is if the manner in which it performs its one responsibility must be updated
+- allows to produce more loosely coupled and modular systems, as individual classes are not overloaded with many implementation details
 
 #### **Don't repeat yourself (DRY)**
+- application should avoid specifying behavior related to a particular concept in multiple places
+- rather than duplicating logic, it makes sense to encapsulate such logic in a programming construct and making that construct the single authority for that behavior.
 
 #### **Persistence ignorance**
+- classes modeling the business domain in a software application should not be impacted by how they might be persisted 
+- their design should focus on solving the business logic and should not be concerned with how the object's state is saved and later retrieved
+- common violations include:
+    - domain objects that must inherit from a particular base class or expose certain properties
+    - a required interface implementation
+    - classes responsible for saving themselves
+    - required parameterless constructor
+    - properties requiring virtual keyword
 
 #### **Bounded contexts**
+- a central pattern in domain driven developement that tackles complexity in large application by breaking it up into separate conceptual modules.
+- it's a strategic principle that provides demarcation for Ubiquitious Language(shared language spoken by all concerned parties) to keep ideas and concepts in context.
+- bounded contexts are not necessarily separated from one another
 
+<img src="imgs/bounded_context.png"  width="60%" height="60%">
 
+[*image source*](https://medium.com/@johnboldt_53034/domain-driven-design-the-bounded-context-1a5ea7bcb4a4)
 
 </br></br>
 
