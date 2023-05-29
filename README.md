@@ -138,6 +138,28 @@ When architecting and designing software applications, maintainability should be
 
 </br></br>
 
+### Common Web Application Architectures
+#### Monolithic application
+- entirely self-contained, in terms of its behaviour. 
+- may interact with other services or data stores, but core of its behavior runs within its own process
+- entire application is usually deployed as a single unit
+
+#### All-in-one application
+- in this architecture, the entire logic of the application is contained in a single project, compiled to a single assembly, and deployed as a single unit.
+- a new ASP.NET Core project, starts out as a simple “all-in-one” monolith, and contains all the behavior for the application including its presentation, business, and data access logic.
+- in such an architecture, separation of concerns is achieved through the use of folders
+- major disadvantage is the separation of business logic into different folders (e.g.,models, views, controllers in mvc apps), making it difficult to which classes in which folders depends on which others
+- image below shows the file structure of a single-project app in visual studio
+
+<img src="imgs/single-project-app-struct.png"  width="60%" height="60%">
+
+[*image source*](https://dotnet.microsoft.com/en-us/download/e-book/aspnet/pdf)
+
+**Layers**
+As these applications get more complex, they evolve into multi-project applications where each project is considered to reside in a particular ***layer*** of the application according to its responsibilities or concerns.
+A layered approach makes it easy to reuse common low-level functionalities across the application.
+Applications can also enforce restrictions over which layers can communicate with other layers
+
 ## Building MVC Web Apps
 ### .NET Core Pipeline
 - .Net Core Pipeline: specifies how an application should respond to requests received.
