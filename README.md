@@ -160,6 +160,17 @@ As these applications get more complex, they evolve into multi-project applicati
 A layered approach makes it easy to reuse common low-level functionalities across the application.
 Applications can also enforce restrictions over which layers can communicate with other layers
 
+#### Traditional N-Layer Architecture
+- application separated into 3 layers: user interface(UI), business logic layer(BLL) and data access layer(DAL)
+- users make requests through the UI, which only interacts with the BLL. BLL can in turn call the DAL for data access.
+- UI shouldn't make any request to the DAL directly nor should it interact with persistence (saved state) directly through other means.
+- BLL should only interact with persistence by going through the DAL
+- major con BLL is dependent on the existence of a database as compile dependencies run from top to bottowm (UI depends on BL which depends on DAL)
+- testing is also difficult as it requires a test database
+
+#### Clean Architecture
+
+
 ## Building MVC Web Apps
 ### .NET Core Pipeline
 - .Net Core Pipeline: specifies how an application should respond to requests received.
