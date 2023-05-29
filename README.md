@@ -85,10 +85,20 @@ When architecting and designing software applications, maintainability should be
 #### **Encapsulation**
 - principle of insulating different parts of an application from each other.
 - app layers and components should be able to change their internal implementation without breaking their dependencies
-- for example, in classes, encapsulation is achieved by limiting outside access to the class's internal state, and allowing manipulations to its state to be made through a well-defined method or property setter.
+- for example, in classes or objects, encapsulation is achieved by limiting outside access to the class's internal state, and allowing manipulations to its state to be made through a well-defined method or property setter.
+- hiding the internal state of the object protects its integrity by preventing users from setting the internal data of the component into an invalid or inconsistent state.
+- in C#, typical keywords, such as `public`, `private` and `protected` offers a programmer a degree of control over what to hide in a class or interface implementation
+- for application components, encapsulation can be achieved by exposing well-defined interfaces for collaborators to use rather than allowing their state to be modified directly.
+- read more [here](https://en.wikipedia.org/wiki/Encapsulation_(computer_programming))
 
 #### **Dependency inversion**
-- the direction of dependency within and application should be in the direction of the abstraction, not in the implementation details
+- the direction of dependency within and application should be in the direction of the abstraction, not in the implementation details. 
+- high-level modules should not import anything from low-level modules. both should depend of abstractions such as interfaces
+- abstractions should not depend on details. details/concrete implementations should depend on abstractions
+- generally, when designing the interaction between a high-level and low-level module, they should not interact with each other directly, but rather through a layer of abstraction.
+- this is not the case in traditional layers of dependency where one class references another directly when interacting thus creating a direct dependency graph and more complex run times.
+- dependency inversion allows apps to be more loosely coupled, making them more testable, modular and maintainable
+- read more [here](https://en.wikipedia.org/wiki/Dependency_inversion_principle)
 
 
 
