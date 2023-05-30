@@ -168,7 +168,17 @@ Applications can also enforce restrictions over which layers can communicate wit
 - major con BLL is dependent on the existence of a database as compile dependencies run from top to bottowm (UI depends on BL which depends on DAL)
 - testing is also difficult as it requires a test database
 
+<img src="imgs/n-layer_architecture.png"  width="60%" height="60%">
+
+[*image source*](https://dotnet.microsoft.com/en-us/download/e-book/aspnet/pdf)
+
+In the image below, the solution structure has 3 projects - Application Core, Infrastructure and Web used to represent the BLL, DAL and UI respectively
+
 #### Clean Architecture
+- follows both the dendency inversion principle and domain-driven design principles
+- puts the business logic and application model at the center of the application
+- instead of having business logic depend on data access or other infrastructure concerns, this dependency is inverted: infrastructure(DAL) and implementation details depend on the Application Core(BLL). 
+- this achieved by defining abstractions, or interfaces, in the Application Core, which are then implemented by types defined in the Infrastructure layer.
 
 
 ## Building MVC Web Apps
