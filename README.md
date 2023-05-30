@@ -132,9 +132,9 @@ When architecting and designing software applications, maintainability should be
 - it's a strategic principle that provides demarcation for Ubiquitious Language(shared language spoken by all concerned parties) to keep ideas and concepts in context.
 - bounded contexts are not necessarily separated from one another
 
-<img src="imgs/bounded_context.png"  width="60%" height="60%">
+	<img src="imgs/bounded_context.png"  width="60%" height="60%">
 
-[*image source*](https://medium.com/@johnboldt_53034/domain-driven-design-the-bounded-context-1a5ea7bcb4a4)
+	[*image source*](https://medium.com/@johnboldt_53034/domain-driven-design-the-bounded-context-1a5ea7bcb4a4)
 
 </br></br>
 
@@ -151,9 +151,9 @@ When architecting and designing software applications, maintainability should be
 - major disadvantage is the separation of business logic into different folders (e.g.,models, views, controllers in mvc apps), making it difficult to which classes in which folders depends on which others
 - image below shows the file structure of a single-project app in visual studio
 
-<img src="imgs/single-project-app-struct.png"  width="60%" height="60%">
+	<img src="imgs/single-project-app-struct.png"  width="70%" height="70%">
 
-[*image source*](https://dotnet.microsoft.com/en-us/download/e-book/aspnet/pdf)
+	[*image source*](https://dotnet.microsoft.com/en-us/download/e-book/aspnet/pdf)
 
 **Layers**
 As these applications get more complex, they evolve into multi-project applications where each project is considered to reside in a particular ***layer*** of the application according to its responsibilities or concerns.
@@ -168,18 +168,37 @@ Applications can also enforce restrictions over which layers can communicate wit
 - major con BLL is dependent on the existence of a database as compile dependencies run from top to bottowm (UI depends on BL which depends on DAL)
 - testing is also difficult as it requires a test database
 
-<img src="imgs/n-layer_architecture.png"  width="60%" height="60%">
+	<img src="imgs/n-layer_architecture.png"  width="70%" height="70%">
 
-[*image source*](https://dotnet.microsoft.com/en-us/download/e-book/aspnet/pdf)
+	[*image source*](https://dotnet.microsoft.com/en-us/download/e-book/aspnet/pdf)
 
-In the image below, the solution structure has 3 projects - Application Core, Infrastructure and Web used to represent the BLL, DAL and UI respectively
+In the image above, the solution structure has 3 projects - Application Core, Infrastructure and Web used to represent the BLL, DAL and UI respectively
 
 #### Clean Architecture
 - follows both the dendency inversion principle and domain-driven design principles
 - puts the business logic and application model at the center of the application
 - instead of having business logic depend on data access or other infrastructure concerns, this dependency is inverted: infrastructure(DAL) and implementation details depend on the Application Core(BLL). 
 - this achieved by defining abstractions, or interfaces, in the Application Core, which are then implemented by types defined in the Infrastructure layer.
+- ui layer works with interfaces defined in the application core at compile time, and ideally shouldn't know about the implementation types defined int he infrastructure layer.
+- however at run time, implementation types are required for app to execute, so they are served to the application core interfaces via dependency injection to be presented to the ui layer.
+- easier to write automated tests because application core doesn't depend on infrastructure.
 
+	<img src="imgs/clean_architecture.png"  width="70%" height="70%">
+
+	*simple clean architecture digram view.* [*image source*](https://dotnet.microsoft.com/en-us/download/e-book/aspnet/pdf)
+
+	<br/>
+
+	- in the diagram below, the three layers are shown as three different projects in asp.net core, with each layer containing the various services, interfaces or entities needed for the application implementation.
+	<img src="imgs/clean_architecture_detailed.png"  width="70%" height="70%">
+
+	*asp.net core clean architecture implementation diagram* [*image source*](https://dotnet.microsoft.com/en-us/download/e-book/aspnet/pdf)
+
+	
+
+	
+
+<br/><br/>
 
 ## Building MVC Web Apps
 ### .NET Core Pipeline
