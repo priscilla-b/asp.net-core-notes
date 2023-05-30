@@ -410,8 +410,21 @@ row to the database
 
 ### Other Features
 #### Routes
--  Routes in MVC follows this pattern: `https://localhost:5555(domain)/category(controller)/index(action)/3(id)`
-- the id part is optional but controller and action are not. In case those are not provided in a url pattern, the default controllers and actions defined in the program will be used.
+- mvc apps can use conventional routes, attribute routes, or both.
+- conventional routes are defined in code, specifying routing conventions such as below:
+	```c#
+	app.UseEndpoints(endpoints => 
+	{ 
+		endpoints.MapControllerRoute(name: "default", pattern: 
+		"{controller=Home}/{action=Index}/{id?}"); 
+	});
+
+	```
+-  this route defined will yield this url on a locaholhost:5555(for example) domain: 
+	`https://localhost:5555(domain)/Home/Index/3`
+- convention states that first part of the route should correspond with the related controller, second part to the related action with an optional id pararmeter at the third part. 
+- routes are defined in the program.cs file alongside the other middleware configurations
+- In case those are not provided in a url pattern, the default controllers and actions defined in the program will be used.
 
 #### TempData
 - `TempData` in .net core allows the storing of data that persists for only one request.
