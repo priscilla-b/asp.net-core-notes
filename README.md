@@ -201,15 +201,6 @@ In the image above, the solution structure has 3 projects - Application Core, In
 <br/><br/>
 
 ## Building MVC Web Apps
-### .NET Core Pipeline
-- .Net Core Pipeline: specifies how an application should respond to requests received.
-- Requests received from the browser goes through the pipeline, which is made of different middlewares.
-- MVC is a type of middleware itself and can be added to an application by adding the `AddControllersWithViews()` method to the application builder services.
-- This adds a number of MVC focused services to the app builder.
-- Other middleware include Authentication, Authorization, Routing and Static Files
-- The order in which middleware is added to the application pipeline is extremely important as it  dictates how the request will be passed.
-- For example, authentication middleware should always come before authorization middleware
-
 ### MVC Archictecture
 - **Model**: Represents the shape of the data, represented as classes. Corresponds to all the data related logic used in the application.
 - **View**: Represents the user interface.
@@ -408,8 +399,21 @@ However, the major change comes from how we interact with the database. In a cre
 row to the database
 
 
-### Other Features
-#### Routes
+### Application Middleware
+
+#### .NET Core MiddleWare Pipeline
+- The asp.net core pipeline contains a sequence of functions(middlewares) and specifies how an application should respond to requests received.
+- When a request passes through the midlleware pipeline, it goes through each function in a sequential order. 
+- Each function process the request and performs an action, then passes the processed request on to the next.
+- When a response is also being sent back to the client, the response messages passes through a similar process in the pipeline, before being sent to the client.
+- Requests received from the browser goes through the pipeline, which is made of different middlewares.
+- MVC is a type of middleware itself and can be added to an application by adding the `AddControllersWithViews()` method to the application builder services.
+- This adds a number of MVC focused services to the app builder.
+- Other middleware include Authentication, Authorization, Routing and Static Files
+- The order in which middleware is added to the application pipeline is extremely important as it  dictates how the request will be passed.
+- For example, authentication middleware should always come before authorization middleware
+
+#### Routing
 - mvc apps can use conventional routes, attribute routes, or both.
 - conventional routes are defined in code, specifying routing conventions such as below:
 	```c#
