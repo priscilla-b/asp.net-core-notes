@@ -432,12 +432,14 @@ row to the database
 
 #### Authentication
 
-Authentication options
+**Authentication options**
 - **Custom:** you can create a custom authentication middleware that handles all auth requests without using any default .net auth middleware or services
-- you add the built-in dotnet authentication middleware to your middleware pipeline by using `app.UseAuthentication()` where `app` represents a `WebApplication.CreateBuilder().Build()` instance.
-- you can use the inbuilt dotnet core identity serci
-- you can use the default dotnet authentication middleware (by adding it to services in Program.cs) or you can create your
-own authentication middleware. [more here](https://stackoverflow.com/questions/48836688/what-exactly-is-useauthentication-for)
+- **Authentication middleware:** you add the built-in dotnet authentication middleware to your middleware pipeline by using `app.UseAuthentication()` where `app` represents a `WebApplication.CreateBuilder().Build()` instance.
+- **Authentication service:** you can use the inbuilt dotnet core identity service by adding `AAddAuthentication()` to the program services defined in `Program.cs`
+-  [more here](https://stackoverflow.com/questions/48836688/what-exactly-is-useauthentication-for)
+
+**Authentication Concepts**
+- 
 
 #### TempData
 - `TempData` in .net core allows the storing of data that persists for only one request.
