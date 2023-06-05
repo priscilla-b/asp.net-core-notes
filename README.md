@@ -430,6 +430,15 @@ row to the database
 - routes are defined in the program.cs file alongside the other middleware configurations
 - In case those are not provided in a url pattern, the default controllers and actions defined in the program will be used.
 
+#### Authentication
+
+Authentication options
+- **Custom:** you can create a custom authentication middleware that handles all auth requests without using any default .net auth middleware or services
+- you add the built-in dotnet authentication middleware to your middleware pipeline by using `app.UseAuthentication()` where `app` represents a `WebApplication.CreateBuilder().Build()` instance.
+- you can use the inbuilt dotnet core identity serci
+- you can use the default dotnet authentication middleware (by adding it to services in Program.cs) or you can create your
+own authentication middleware. [more here](https://stackoverflow.com/questions/48836688/what-exactly-is-useauthentication-for)
+
 #### TempData
 - `TempData` in .net core allows the storing of data that persists for only one request.
 - Makes it appropriate to store data such as alerts and messages
@@ -464,3 +473,4 @@ and local functions, use pascal casing
 ### Stackoverflow answers
 - [fix to "certificate not trusted ... " when connecting to sqlserver database](https://stackoverflow.com/questions/17615260/the-certificate-chain-was-issued-by-an-authority-that-is-not-trusted-when-conn)
 - [what's the common practice of gitignore for asp.net core project](https://stackoverflow.com/questions/39289765/whats-the-common-practice-of-gitignore-for-aspnet-core-project)
+- [what exactly is UseAuthentication() for ](https://stackoverflow.com/questions/48836688/what-exactly-is-useauthentication-for)
